@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   const user = useSelector((state) => state.user.user)
@@ -14,7 +15,7 @@ const Navbar = () => {
         <div tabIndex={0} role="button" className="btn btn-ghost flex items-center gap-2">
           {user && (
             <>
-              <h1 className="text-base font-semibold">Welcome {user.data.email}</h1>
+              <h1 className="text-base font-semibold">Welcome {user?.email}</h1>
               <div className="w-10 h-10 rounded-full overflow-hidden">
                 <img
                   alt="Profile"
@@ -30,12 +31,19 @@ const Navbar = () => {
           className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
           <li>
             <a className="justify-between">
-              Profile
-              <span className="badge">New</span>
+              <Link to="/profile">
+              <span className="badge">Profile</span>
+              </Link>
             </a>
           </li>
-          <li><a>Settings</a></li>
-          <li><a>Logout</a></li>
+          <li><Link to="/settings">
+            <span className="badge">Settings</span>
+            </Link>
+            </li>
+          <li><Link to="/logout">
+            <span className="badge">Logout</span>
+            </Link>
+            </li>
         </ul>
       </div>
     </div>

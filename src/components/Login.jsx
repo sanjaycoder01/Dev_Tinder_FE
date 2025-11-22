@@ -41,10 +41,10 @@ const dispatch = useDispatch()
         }
         setLoading(false)
         setSuccess('Login successful! ...')
-        // Wait 2 seconds before navigating
-        setTimeout(() => {
-          navigate('/')
-        }, 2000)
+        //page reload
+        navigate('/feed')
+        window.location.reload()
+     
       }
     } catch (error) {
       console.error('Login error:', error)
